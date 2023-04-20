@@ -1,0 +1,57 @@
+Step 1:Assembling the Robot
+Fix the wheels on the chassis.
+Mount the DC motors on the back wheels and use dummy wheels for the front.
+Mount the L293D IC on the breadboard and place it on the chassis
+Place the Arduino on the chassis and make the connections of L293D as follows
+4,5,12,13 to GND
+1,9,16 to VCC(5V)
+3,6 to left motor(output)
+11,14 to right motor(output)
+2,7,10,15 to pins 8,9,10,7 of Arduino(inputs)
+8 to 9V battery
+
+Step 2: Determining the Direction of Robot
+Basically, the motor rotates when the inputs supplied are opposite.
+Forexample,high, low may rotate the motor in clockwise while low, high in
+anti-clockwise. If both inputs are same then motor does not rotate. Thecode will
+help to determine for what inputs for the 2 motors will the robot move forward
+it in Arduino IDE In my case it was observed that the bot will move forward pin
+9 of Arduino is high, pin 8 is low (for left motor), pin 10 is high, pin 7 is low
+(for right motor). Similarly for moving back the combination is
+19
+high,low,low,high.The bot will go right if left motor is moving and right is
+stopped by giving same inputs. Similarly, for left.
+
+Step 3: Interfacing ADXL335 With Arduino
+Mount the ADXL335 and on the breadboard. The connections to Arduino
+should be as follows. The Arduino should be different from the one used in step
+1:ADXL335 ARDUINO
+VCC 3.3 V
+GND GND
+X A0
+Y A1
+Z open
+ST open
+
+Step 4: Interfacing RF Transmitter With Arduino
+Mount the RF transmitter on the breadboard in previous step and make
+connections as follows.
+RF transmitter Arduino
+GND GND
+DATA D12
+
+Step 5: The Receiver
+Mount the RF receiver on the breadboard of step 2. The connections to the
+Arduino used in step 2 are
+RF receiver Arduino
+VCC 5V
+DATA D11
+20
+GND GND
+
+Step 6: Connecting the ultrasonic sensors
+The ultrasonic sensors are connected to the receiver Arduino
+
+Step 7: Connect Buzzer
+Connect the +ve terminal of the buzzer to D9 of arduino as it’s the o/p pin and
+grnd the –ve terminal
